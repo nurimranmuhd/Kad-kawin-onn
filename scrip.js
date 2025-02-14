@@ -1,24 +1,16 @@
-document.getElementById("rsvpForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("rsvp-form").addEventListener("submit", function(event) {
+    event.preventDefault();
     
-    let nama = document.getElementById("nama").value;
-    let kehadiran = document.querySelector('input[name="kehadiran"]:checked').value;
-    let bilangan = document.getElementById("bilangan").value;
-    let ucapan = document.getElementById("ucapan").value;
-
-    let data = {
-        nama: nama,
-        kehadiran: kehadiran,
-        bilangan: bilangan,
-        ucapan: ucapan
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbzCfMP8FAyH7JQmbBBhJ77I2iZvEBwVdzKVl5RKK361/dev", {
+    let formData = new FormData(this);
+    let data = new URLSearchParams(formData);
+    
+    fetch("https://script.google.com/macros/s/AKfycbzCfMP8FAyH7JQmbBBhJ77I2iZvEBwVdzKVl5RKK361/dev", {  
         method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
+        body: data
     })
     .then(response => response.text())
-    .then(data => alert("RSVP Berjaya Dihantar!"))
+    .then(data => {
+        alert("Terima kasih! RSVP anda telah direkod.");
+    })
     .catch(error => console.error("Error:", error));
 });
