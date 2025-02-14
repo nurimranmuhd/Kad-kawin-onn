@@ -4,7 +4,7 @@ document.getElementById("rsvp-form").addEventListener("submit", function(event) 
     let formData = new FormData(this);
     let data = new URLSearchParams(formData);
     
-    fetch("https://script.google.com/macros/s/AKfycbxAVmoKNjVMPZRINLMCBIiyL_xj8GgGRddHZPUM1gfQQfYjm2KCKEkAUq_-sP4t47KJFw/dev", {  
+    fetch("https://script.google.com/macros/s/AKfycbwwCpo8HX7FxV0ITXK_uJRBnQ5SgoBGpXSpNnOMAaXDVxc-wzi9PiBvCvkDyvspTqVw6A/dev", {  
         method: "POST",
         body: data
     })
